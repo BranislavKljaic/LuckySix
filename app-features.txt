@@ -1,0 +1,5 @@
+Napraviti history tab, gdje ce ispisivati brojeve koji su izasli, broj kruga, jackpot code i tikete koji su izasli u tom krugu
+
+U Game tabu napraviti button za start (ili napraviti tajmer da pri pokretanju aplikacije pocinje), da nakon 30ak sekundi pocinje kolo i da pocne izbacitvati brojeve
+
+Promijeniti alert na MUI komponentu

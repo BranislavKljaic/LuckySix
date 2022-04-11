@@ -1,0 +1,19 @@
+.numbers-array {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 50px;
+}
+
+.array-number {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}

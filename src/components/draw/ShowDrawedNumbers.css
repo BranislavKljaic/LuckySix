@@ -1,0 +1,10 @@
+.one-drawal {
+  padding-top: 50px;
+}
+
+.one-drawal-infos {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}

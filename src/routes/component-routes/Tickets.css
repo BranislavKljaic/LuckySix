@@ -1,0 +1,28 @@
+.random-ticket {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.random-ticket-button {
+  display: flex;
+}
+
+.random-ticket-bet {
+  display: flex;
+}
+
+.custom-ticket-numbers {
+  padding-top: 50px;
+  flex-wrap: wrap;
+}
+
+.custom-ticket-numbers-balls {
+  display: flex;
+}
+
+.custom-ticket-numbers-info {
+  display: flex;
+}
