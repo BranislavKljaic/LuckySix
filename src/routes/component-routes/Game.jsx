@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Game.css';
 
-import Countdown from '../../components/countdown/Countdown';
+import Countdown from '../../features/countdown/Countdown';
 
 const Game = () => (
   <div>

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  generateTicket,
+  generateNewTicket,
   generateTicketId,
   generateJackpotCode,
   checkIsWin,
@@ -15,15 +15,16 @@ const ticketsSlice = createSlice({
   },
   reducers: {
     addTicketToArrayOfTickets(state, action) {
-      const newTicket = generateTicket();
+      const newTicket = generateNewTicket();
       state.totalNumberOfTickets += 1;
       state.tickets.push({
         id: newTicket.id,
-        numbers: newTicket.numbers,
+        balls: newTicket.balls,
         win: newTicket.win,
         jackpotCode: newTicket.jackpotCode,
         bet: action.payload.drawBet,
         numberOfDraw: action.payload.betCounter + 1,
+        amountOfWin: null,
       });
     },
     addCustomTicketToArrayOfTickets(state, action) {
@@ -31,21 +32,26 @@ const ticketsSlice = createSlice({
       state.totalNumberOfTickets += 1;
       state.tickets.push({
         id: generateTicketId(),
-        numbers: newTicket.numbers,
+        balls: newTicket.balls,
         win: false,
         jackpotCode: generateJackpotCode(),
         bet: newTicket.bet,
+        numberOfDraw: newTicket.numberOfDraw + 1,
+        amountOfWin: null,
       });
     },
     setWin(state, action) {
       state.tickets.forEach((element) => {
-        if (checkIsWin(element.numbers, action.payload)) {
+        // const indexOfLastNumber
+        if (checkIsWin(element.balls, action.payload) !== false) {
           state.wonTickets.push({
             id: element.id,
-            numbers: element.numbers,
+            balls: element.balls,
             win: true,
             jackpotCode: element.jackpotCode,
             bet: element.bet,
+            numberOfDraw: element.numberOfDraw,
+            amountOfWin: checkIsWin(element.balls, action.payload),
           });
         }
       });

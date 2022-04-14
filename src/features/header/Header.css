@@ -1,0 +1,28 @@
+.mainHeader {
+  background-color: rgb(94, 73, 255);
+  padding: 20px 10px;
+}
+
+.headerTitle {
+    font-size: 30px;
+}
+
+.mainHeader a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.headerMenu {
+  float: right;
+  align-content: center;
+  font-size: 20px;
+}
+
+.headerMenu a:hover {
+    background: white;
+    color: purple;
+    transition: 0.5s;
+    border-radius: 10px;
+}

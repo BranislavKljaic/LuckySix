@@ -1,0 +1,38 @@
+.drawal-title {
+  display: flex;
+  justify-content: center;
+  color: rgb(151, 19, 19);
+}
+
+.all-five-drawed-numbers {
+  display: flex;
+  justify-content: center;
+}
+
+.first-five-numbers {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 300px;
+  gap: 5px;
+}
+
+.all-drawed-numbers {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.other-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 550px;
+  gap: 5px;
+}
+
+.win-amount {
+  display: flex;
+  justify-content: center;
+  color: indigo;
+  font-size: 15px;
+  font-weight: bold;
+}

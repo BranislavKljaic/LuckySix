@@ -9,7 +9,7 @@ interface IButton extends ButtonProps {
 const MyButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== '#cdcdcd',
 })<IButton>(({ mycolor }) => ({
-  width: 250,
+  width: 230,
   margin: 1,
   background: mycolor,
   color: '#fff',

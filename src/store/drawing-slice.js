@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { numbers } from '../functions/Helpers';
+import { generatingNewDrawal } from '../functions/Helpers';
 
 const drawingSlice = createSlice({
   name: 'drawing',
@@ -9,7 +9,7 @@ const drawingSlice = createSlice({
   },
   reducers: {
     drawNumbers(state) {
-      const newDrawal = numbers();
+      const newDrawal = generatingNewDrawal();
       state.numberOfDrawal += 1;
       state.drawedNumbers.push({
         jackpotCode: newDrawal.jackpotCode,
@@ -17,6 +17,9 @@ const drawingSlice = createSlice({
         winAmounts: newDrawal.winAmounts,
         numberOfDrawing: state.numberOfDrawal,
       });
+    },
+    getNumberOfDrawal(state) {
+      return state.numberOfDrawal;
     },
   },
 });

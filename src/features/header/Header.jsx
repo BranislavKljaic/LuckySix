@@ -2,9 +2,9 @@ import React from 'react';
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
-import Game from '../../routes/component-routes/Game';
-import Tickets from '../../routes/component-routes/Tickets';
+import Play from '../../routes/component-routes/Play';
 import History from '../../routes/component-routes/History';
+import Game from '../../routes/component-routes/Game';
 
 import './Header.css';
 
@@ -16,19 +16,18 @@ const Header = () => (
       </Link>
 
       <div className="headerMenu">
-        <Link to="/game">Game</Link>
-        <Link to="/tickets">Tickets</Link>
+        <Link to="/play">Play</Link>
         <Link to="/history">History</Link>
       </div>
     </div>
 
     <Switch>
-      <Redirect exact from="/" to="/tickets" />
+      <Redirect exact from="/" to="/play" />
       <Route path="/game">
         <Game />
       </Route>
-      <Route path="/tickets">
-        <Tickets />
+      <Route path="/play">
+        <Play />
       </Route>
       <Route path="/history">
         <History />

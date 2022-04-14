@@ -4,15 +4,15 @@ import { counterSliceActions } from '../../store/counter-slice';
 import { drawingSliceActions } from '../../store/drawing-slice';
 import ShowCounter from './ShowCounter';
 import DrawalGame from '../draw/DrawalGame';
-import { CustomButton } from '../buttons/CustomButton';
+// import { CustomButton } from '../../components/buttons/CustomButton';
 
 const Countdown = () => {
   const dispatch = useDispatch();
   const draws = useSelector((state) => state.draws);
   const counter = useSelector((state) => state.counter);
   const [numsArray, setNumsArray] = useState([]);
-  const [flag, setFlag] = useState(true);
-  const [countDown, setCountDown] = useState(10);
+  const [flag, setFlag] = useState(false);
+  const [countDown, setCountDown] = useState(5);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +24,7 @@ const Countdown = () => {
           dispatch(counterSliceActions.increment());
         }
         setFlag(true);
-        setCountDown(10);
+        setCountDown(5);
       }
     }, 1000);
 
@@ -33,19 +33,10 @@ const Countdown = () => {
 
   useEffect(() => {
     dispatch(drawingSliceActions.drawNumbers());
-  }, [numsArray]);
+  }, []);
 
   return (
     <div>
-      <CustomButton
-        type="submit"
-        onClick={() => {
-          setFlag(false);
-          setCountDown(10);
-        }}
-      >
-        Start drawal
-      </CustomButton>
       {!flag ? (
         <ShowCounter counter={countDown} />
       ) : (

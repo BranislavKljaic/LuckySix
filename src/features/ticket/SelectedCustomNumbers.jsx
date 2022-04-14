@@ -1,17 +1,16 @@
 import React from 'react';
 
-import './CustomNumbers.css';
+import './SelectedCustomNumbers.css';
 import '../../shared/BallColors.css';
-
-import { ballColor } from '../../functions/Helpers';
+import Ball from './Ball';
 
 function CustomNumbers(props) {
   return (
     <div className="numbers-array">
       {props.numbers.map((number) => (
-        <span className={`array-number ${ballColor(number)}`} key={number}>
-          {number}
-        </span>
+        <div key={number}>
+          <Ball number={number} onClick={() => {}} />
+        </div>
       ))}
     </div>
   );

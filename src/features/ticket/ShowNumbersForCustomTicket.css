@@ -1,14 +1,13 @@
 .choose-numbers {
   display: flex;
-  flex-direction: column;
-  padding-top: 50px;
-  gap: 15px;
+  justify-content: center;
+  float: right;
+  padding-right: 150px;
+  width: 400px;
   flex-wrap: wrap;
 }
 
 .choose-numbers > div {
   display: flex;
   justify-content: center;
-  min-width: 550px;
-  gap: 15px;
 }
