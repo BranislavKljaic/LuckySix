@@ -28,22 +28,8 @@
   justify-content: space-between;
 }
 
-.circle {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  display: flex;
-
-  color: white;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
-
 .ticket-info {
   color: white;
-  
-  
   display: flex;
   align-items: center;
 }

@@ -35,7 +35,6 @@ const generateTicketId = () => {
 };
 
 // Generate win amounts for every field on board
-// Function not implemented
 const generateWinAmounts = () => {
   let winAmounts = [];
   winAmounts = [
@@ -57,14 +56,6 @@ const generateNewTicket = (drawalNumber) => {
   ticket.id = generateTicketId();
   ticket.jackpotCode = generateJackpotCode();
   ticket.numberOfDraw = drawalNumber;
-  // const ticket = {
-  //   id: generateTicketId(),
-  //   balls: [],
-  //   win: false,
-  //   jackpotCode: generateJackpotCode(),
-  //   bet: 1,
-  //   numberOfDraw: drawalNumber,
-  // };
 
   do {
     const num = Math.floor(Math.random() * (BALL_COUNT + 1 - 1)) + 1;
@@ -79,7 +70,8 @@ const generateNewTicket = (drawalNumber) => {
   return ticket;
 };
 
-// Generating 35 random numbers and jackpot code for drawing
+// Generating random numbers specified by NUMBER_OF_DRAWED_BALLS global constant
+// and jackpot code for drawing
 const generatingNewDrawal = () => {
   const newDrawal = new Draw();
 
@@ -99,7 +91,10 @@ const generatingNewDrawal = () => {
 };
 
 // Checking if ticket numbers are contained in draw numbers
-function checkIsWin(ticket, arrayOfNumbers) {
+// Making array of indexes on which place is found number from ticket
+// If length of that array is 6, function is returning the highest number from array
+// of indexes, which is the last spot where number from ticket has been found
+const checkIsWin = (ticket, arrayOfNumbers) => {
   const tempArray = [];
   let o = 0;
   for (let k = 0; k < ticket.length; k += 1) {
@@ -109,13 +104,12 @@ function checkIsWin(ticket, arrayOfNumbers) {
         o += 1;
       }
       if (o === 6) {
-        // console.log(Math.max.apply(null, tempArray));
         return Math.max.apply(null, tempArray);
       }
     }
   }
   return false;
-}
+};
 
 // Setting ball colors on UI
 const ballColor = (num) => {

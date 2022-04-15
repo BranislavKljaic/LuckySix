@@ -1,7 +1,12 @@
+/*
+  Component for showing history of drawed numbers by chosing Drawal in dropdown menu and
+  specified number of drawal in another dropdown menu
+*/
+
 import React from 'react';
+import Ball from '../ticket/Ball';
 
 import './ShowDrawedNumbers.css';
-import DrawedBalls from './DrawedBalls';
 
 const ShowDrawedNumbers = (props) => {
   const { numberOfDrawal, typeOfDrawal } = props;
@@ -15,16 +20,16 @@ const ShowDrawedNumbers = (props) => {
             id={element.numberOfDrawing}
             key={element.numberOfDrawing}
           >
-            <div className="one-drawal-infos">
-              Number of drawing:
-              {element.numberOfDrawing}
-            </div>
             <div className="one-drawal-numbers">
-              <DrawedBalls drawedNumbers={element.numbers.slice(0, 7)} />
-              <DrawedBalls drawedNumbers={element.numbers.slice(7, 14)} />
-              <DrawedBalls drawedNumbers={element.numbers.slice(14, 21)} />
-              <DrawedBalls drawedNumbers={element.numbers.slice(21, 28)} />
-              <DrawedBalls drawedNumbers={element.numbers.slice(28, 35)} />
+              <div className="one-drawal-infos">
+                Number of drawing:
+                {element.numberOfDrawing}
+              </div>
+              {element.numbers.map((num) => (
+                <div className="one-drawal-number">
+                  <Ball number={num} />
+                </div>
+              ))}
               <div className="one-drawal-infos">
                 Jackpot code:
                 {element.jackpotCode}

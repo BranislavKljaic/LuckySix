@@ -2,12 +2,12 @@ import React from 'react';
 
 import './Game.css';
 
-import Countdown from '../../features/countdown/Countdown';
+import Gaming from '../../features/gaming/Gaming';
 
 const Game = () => (
   <div>
     <div>
-      <Countdown />
+      <Gaming />
     </div>
   </div>
 );

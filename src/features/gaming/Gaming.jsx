@@ -1,10 +1,14 @@
+/*
+  Component which shows when Game start, it shows counter first, which is initialy
+  5 then when is comes to 0 it start to show numbers from drawal
+*/
+
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { counterSliceActions } from '../../store/counter-slice';
 import { drawingSliceActions } from '../../store/drawing-slice';
 import ShowCounter from './ShowCounter';
 import DrawalGame from '../draw/DrawalGame';
-// import { CustomButton } from '../../components/buttons/CustomButton';
 
 const Countdown = () => {
   const dispatch = useDispatch();

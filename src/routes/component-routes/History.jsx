@@ -1,3 +1,7 @@
+/*
+  Component which gives you possibility to see history of drawed numbers and played tickets
+*/
+
 import React, { useEffect, useState } from 'react';
 
 import './History.css';
@@ -24,19 +28,21 @@ const History = () => {
 
   return (
     <div>
-      <div>
-        <CustomDropDown
-          valueList={['Tickets', 'Drawal']}
-          setValue={setSelectedHistoryOption}
-          label="Type"
-        />
-      </div>
-      <div>
-        <CustomDropDown
-          valueList={numbersOfDrawal}
-          setValue={setSelectedHistoryNumberOfDraw}
-          label="Drawal"
-        />
+      <div className="history-select">
+        <div className="custom-dropdown">
+          <CustomDropDown
+            valueList={['Tickets', 'Drawal']}
+            setValue={setSelectedHistoryOption}
+            label="Type"
+          />
+        </div>
+        <div>
+          <CustomDropDown
+            valueList={numbersOfDrawal}
+            setValue={setSelectedHistoryNumberOfDraw}
+            label="Drawal"
+          />
+        </div>
       </div>
       <div>
         <ShowDrawedNumbers

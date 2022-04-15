@@ -1,3 +1,8 @@
+/*
+  Component which shows history tickets when Tickets are chosen on dropdown menu
+  from the drawal which is chosen from other dropdown menu
+*/
+
 import React from 'react';
 
 import Ticket from '../ticket/Ticket';

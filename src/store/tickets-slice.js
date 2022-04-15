@@ -14,6 +14,7 @@ const ticketsSlice = createSlice({
     wonTickets: [],
   },
   reducers: {
+    // Adding random generated ticket to array of tickets
     addTicketToArrayOfTickets(state, action) {
       const newTicket = generateNewTicket();
       state.totalNumberOfTickets += 1;
@@ -27,6 +28,7 @@ const ticketsSlice = createSlice({
         amountOfWin: null,
       });
     },
+    // Adding custom generated ticket to array of tickets
     addCustomTicketToArrayOfTickets(state, action) {
       const newTicket = action.payload;
       state.totalNumberOfTickets += 1;
@@ -40,9 +42,10 @@ const ticketsSlice = createSlice({
         amountOfWin: null,
       });
     },
+    // Going through list of tickets and checking what ticket is win ticket
+    // If ticket is win ticket it pushs that ticket to list of winning tickets
     setWin(state, action) {
       state.tickets.forEach((element) => {
-        // const indexOfLastNumber
         if (checkIsWin(element.balls, action.payload) !== false) {
           state.wonTickets.push({
             id: element.id,

@@ -1,10 +1,21 @@
 .one-drawal {
-  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .one-drawal-infos {
   display: flex;
   justify-content: center;
-  color: white;
-  font-size: 30px;
+  color: whitesmoke;
+  font-size: 25px;
+  font-weight: bold;
+  width: 350px;
+}
+
+.one-drawal-numbers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 350px;
 }

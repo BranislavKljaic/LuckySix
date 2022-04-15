@@ -1,3 +1,7 @@
+/*
+  Component which represents just one ball
+*/
+
 import React from 'react';
 
 import { ballColor } from '../../functions/Helpers';

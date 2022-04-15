@@ -1,3 +1,7 @@
+/*
+  Component for creating custom ticket, user can choose numbers and bet
+*/
+
 import React, { useState, useEffect } from 'react';
 import './GeneratingCustomTicket.css';
 import { IconButton } from '@mui/material';
@@ -7,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { arrayOfAllNumbers, BALL_COUNT } from '../../functions/Helpers';
 
 import ShowNumbersForCustomTicket from './ShowNumbersForCustomTicket';
-import BetAmountField from '../../components/fields/BetAmountField';
+import CustomInputField from '../../components/fields/CustomInputField';
 import SelectedCustomNumbers from './SelectedCustomNumbers';
 import { CustomButton } from '../../components/buttons/CustomButton';
 import CustomDialog from '../../components/dialog/CustomDialog';
@@ -64,15 +68,19 @@ const GeneratingCustomTicket = () => {
   };
 
   const payCustomTicket = () => {
-    dispatch(
-      ticketsSliceActions.addCustomTicketToArrayOfTickets({
-        balls: ticketNumbers.sort((a, b) => a - b),
-        bet: customBet,
-        numberOfDraw: counter.counter,
-      }),
-    );
-    setTicketNumbers([]);
-    unselectAllNumbers();
+    if (ticketNumbers.length < 6) {
+      setOpenDialog(true);
+    } else {
+      dispatch(
+        ticketsSliceActions.addCustomTicketToArrayOfTickets({
+          balls: ticketNumbers.sort((a, b) => a - b),
+          bet: customBet,
+          numberOfDraw: counter.counter,
+        }),
+      );
+      setTicketNumbers([]);
+      unselectAllNumbers();
+    }
   };
 
   return (
@@ -91,7 +99,15 @@ const GeneratingCustomTicket = () => {
       <div>
         {ticketNumbers.length ? (
           <div className="custom-ticket-numbers-info">
-            <BetAmountField bet={customBet} setBet={setCustomBet} />
+            <CustomInputField
+              valueType="number"
+              setValue={setCustomBet}
+              minValue={1}
+              maxValue={10}
+              label="Bet"
+              valueId="standard-number"
+              setDefaultValue={1}
+            />
             <IconButton aria-label="delete" onClick={deleteNumbers}>
               <DeleteIcon />
             </IconButton>
@@ -99,8 +115,8 @@ const GeneratingCustomTicket = () => {
             <CustomDialog
               open={openDialog}
               onClose={closeDialogHandler}
-              title="Maximum numbers on one ticket warning"
-              description="In this version of lucky six, maximum numbers allowed per one ticket is six!"
+              title="Number of balls warning"
+              description="In this version of lucky six, each ticket must have exactly six balls!"
             />
           </div>
         ) : (

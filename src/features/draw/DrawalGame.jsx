@@ -1,25 +1,30 @@
+/*
+  Component which is called when counter comes to value 0 and game starts
+  Every 2000ms (value specified in setTimeout) new number is pushed in array
+  which is showing numbers on UI, hense, every 2000ms new number is shown on screen
+  First 5 numbers don't have winning values, rest numbers does
+  After game is done, under those numbers are shown won tickets just from that drawal
+*/
+
 import React, { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
+
 import {
   generateWinAmounts,
   NUMBER_OF_DRAWED_BALLS,
 } from '../../functions/Helpers';
-import ShowWinTickets from '../countdown/ShowWinTickets';
+import ShowWinTickets from '../gaming/ShowWinTickets';
 import Ball from '../ticket/Ball';
 
 import './DrawalGame.css';
 
 const DrawalGame = (props) => {
+  const { array, counter } = props;
   const [nums, setNums] = useState([]);
-  // const allTickets = useSelector((state) => state.tickets.tickets);
-  // const drawWinAmounts = useSelector(
-  //   (state) => state.draws.drawedNumbers,
-  // );
   const drawWinAmounts = generateWinAmounts();
   let i = 0;
 
   useEffect(() => {
-    props.array.forEach((element, j) => {
+    array.forEach((element, j) => {
       setTimeout(() => {
         if (i < 5) {
           setNums((e) => [...e, { value: element, winAmount: null }]);
@@ -40,7 +45,7 @@ const DrawalGame = (props) => {
       <div>
         <h1 className="drawal-title">
           Drawal game number:
-          {props.counter}
+          {counter}
         </h1>
 
         <div className="all-five-drawed-numbers">
@@ -67,7 +72,7 @@ const DrawalGame = (props) => {
         <div>
           <ShowWinTickets
             length={nums.length}
-            numberOfDraw={props.counter}
+            numberOfDraw={counter}
             array={nums}
             winAmounts={drawWinAmounts}
           />

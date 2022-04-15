@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Counter is redux value which specifies the number of drawal
 const counterSlice = createSlice({
   name: 'counter',
   initialState: {

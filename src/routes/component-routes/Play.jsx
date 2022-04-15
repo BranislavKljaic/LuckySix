@@ -1,5 +1,8 @@
+/*
+  Component which represents Play route
+*/
+
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import './Play.css';
@@ -12,7 +15,6 @@ import GeneratingRandomTicket from '../../features/ticket/GeneratingRandomTicket
 const Tickets = () => {
   const tickets = useSelector((state) => state.tickets.tickets);
   const counter = useSelector((state) => state.counter.counter);
-  // const history = useHistory();
 
   return (
     <div>

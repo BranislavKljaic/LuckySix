@@ -1,3 +1,9 @@
+/*
+  Component which represents creating random ticket, user can just set bet value
+
+  This components also has a button for starting game play
+*/
+
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -7,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ticketsSliceActions } from '../../store/tickets-slice';
 
 import { CustomButton } from '../../components/buttons/CustomButton';
-import BetAmountField from '../../components/fields/BetAmountField';
+import CustomInputField from '../../components/fields/CustomInputField';
 
 const GeneratingRandomTicket = () => {
   const history = useHistory();
@@ -30,7 +36,15 @@ const GeneratingRandomTicket = () => {
           </CustomButton>
         </div>
         <div className="random-ticket-bet">
-          <BetAmountField bet={bet} setBet={setBet} />
+          <CustomInputField
+            valueType="number"
+            setValue={setBet}
+            minValue={1}
+            maxValue={10}
+            label="Bet"
+            valueId="standard-number"
+            setDefaultValue={1}
+          />
         </div>
         <div className="start-game">
           <CustomButton onClick={() => history.push('/game')}>

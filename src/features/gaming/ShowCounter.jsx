@@ -1,3 +1,7 @@
+/*
+  Component which shows numbers from countdown
+*/
+
 import React from 'react';
 
 import './ShowCounter.css';

@@ -1,6 +1,14 @@
+/*
+Component which lists winning tickets when all numbers specified by NUMBER_OF_DRAWED_BALLS global
+constant are drawed, in that route under drawed balls
+*/
+
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { NUMBER_OF_DRAWED_BALLS } from '../../functions/Helpers';
+
 import Ticket from '../ticket/Ticket';
 import { ticketsSliceActions } from '../../store/tickets-slice';
 
@@ -11,7 +19,7 @@ const ShowWinTickets = (props) => {
   const counter = useSelector((state) => state.counter.counter);
   let flag = false;
 
-  if (props.length === 35) flag = true;
+  if (props.length === NUMBER_OF_DRAWED_BALLS) flag = true;
 
   useEffect(() => {
     dispatch(ticketsSliceActions.setWin(props.array));

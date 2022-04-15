@@ -1,3 +1,8 @@
+/*
+  Component which represents menu and give choices for routes
+  to history (previous drawals and tickets) and play (choose tickets for game play)
+*/
+
 import React from 'react';
 
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
@@ -11,7 +16,7 @@ import './Header.css';
 const Header = () => (
   <Router>
     <div className="mainHeader">
-      <Link to="/game" className="headerTitle">
+      <Link to="/play" className="headerTitle">
         Lucky Six
       </Link>
 

@@ -1,3 +1,8 @@
+/*
+  Component which show numbers when creating custom ticket
+  Showing all numbers from 1 to BALL_COUNT global variable
+*/
+
 import React from 'react';
 import Ball from './Ball';
 import './ShowNumbersForCustomTicket.css';
