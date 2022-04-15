@@ -1,3 +1,1 @@
-# react-template
-
-This is the initial version of the react template
+Lucky six game using JSGuru React template
